@@ -6,6 +6,7 @@ import NotFound from "./app/components/NotFound";
 import College from "./app/components/College";
 import School from "./app/components/School";
 import Nested from "./app/components/Nested";
+import UserDetail from "./app/components/UserDetails";
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +29,12 @@ function App() {
             {
               path: "college",
               element: <College />,
+              children: [
+                {
+                  path: ":id",
+                  element: <UserDetail />,
+                },
+              ],
             },
             {
               path: "school",
