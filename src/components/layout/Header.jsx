@@ -20,6 +20,11 @@ const Header = () => {
                 About
               </Link>
             </li>
+            <li>
+              <Link to="/nested" className="text-white hover:underline">
+                Nested{" "}
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

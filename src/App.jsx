@@ -3,6 +3,9 @@ import AppLayout from "./components/layout/AppLayout";
 import Home from "./app/components/Home";
 import About from "./app/components/About";
 import NotFound from "./app/components/NotFound";
+import College from "./app/components/College";
+import School from "./app/components/School";
+import Nested from "./app/components/Nested";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,7 +23,17 @@ function App() {
         },
         {
           path: "/nested",
-          element: <About />,
+          element: <Nested />,
+          children: [
+            {
+              path: "college",
+              element: <College />,
+            },
+            {
+              path: "school",
+              element: <School />,
+            },
+          ],
         },
         {
           path: "/*",

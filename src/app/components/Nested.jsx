@@ -1,31 +1,29 @@
 import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Nested = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen  mt-7">
       <h1 className="text-4xl font-bold text-blue-600">Nested Routes</h1>
-      <nav style={styles.nav}>
-        <NavLink to="/" style={styles.link} activeStyle={styles.active}>
-          Home
-        </NavLink>
-        <NavLink to="/about" style={styles.link} activeStyle={styles.active}>
-          About
+      <nav className="bg-blue-600 text-white p-4 flex gap-6 mt-3 rounded-lg">
+        <NavLink
+          to="college"
+          className={({ isActive }) =>
+            `text-lg ${isActive ? "font-bold text-yellow-400" : "text-white"}`
+          }
+        >
+          College
         </NavLink>
         <NavLink
-          to="/about/team"
-          style={styles.link}
-          activeStyle={styles.active}
+          to="school"
+          className={({ isActive }) =>
+            `text-lg ${isActive ? "font-bold text-yellow-400" : "text-white"}`
+          }
         >
-          Team
-        </NavLink>
-        <NavLink
-          to="/about/contact"
-          style={styles.link}
-          activeStyle={styles.active}
-        >
-          Contact
+          School
         </NavLink>
       </nav>
+      <Outlet />
     </div>
   );
 };
